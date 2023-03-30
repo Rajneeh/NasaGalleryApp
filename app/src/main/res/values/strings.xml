@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NasaGalleryApp</string>
+    <string name="noInternetErrorMsg">Please check your internet connection and try again.</string>
 </resources>
