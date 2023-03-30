@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">NasaGalleryApp</string>
     <string name="noInternetErrorMsg">Please check your internet connection and try again.</string>
+    <string name="failedToConnectToServerMsg">Failed to connect to the server. Check your internet connection and try again later.</string>
+    <string name="somethingWentWrongMsg">Something went wrong. Try again!!</string>
 </resources>

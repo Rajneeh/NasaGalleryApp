@@ -5,6 +5,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.nasa.gallery.R
+import retrofit2.Response
+import java.net.SocketTimeoutException
 
 @RequiresApi(Build.VERSION_CODES.M)
 fun Context.isConnectedToInternet(): Boolean {
@@ -21,4 +24,32 @@ fun Context.isConnectedToInternet(): Boolean {
         }
     }
     return false
+}
+
+fun <T, R> Response<T>.handleResponse(onCallSuccess: (T) -> Result<R>): Result<R> {
+    return if (isSuccessful) {
+        body()?.let {
+            onCallSuccess(it)
+        } ?: Result.Error(ApplicationError.UnExpectedError("Something Went Wrong!!"))
+    } else {
+        val errorMsg = "Something Went Wrong!!"
+        Result.Error(ApplicationError.UnExpectedError(errorMsg))
+    }
+}
+
+fun Exception.handleExceptionWithContext(context: Context): Result.Error {
+    return when (this) {
+        is SocketTimeoutException -> Result.Error(
+            ApplicationError.SocketTimeOutError(
+                message = context.resources.getString(
+                    R.string.failedToConnectToServerMsg
+                )
+            )
+        )
+        else -> Result.Error(
+            ApplicationError.UnExpectedError(
+                message = message ?: context.resources.getString(R.string.somethingWentWrongMsg)
+            )
+        )
+    }
 }
