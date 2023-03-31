@@ -11,7 +11,6 @@ import com.nasa.gallery.viewmodel.ImageViewModelFactory
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ImageViewModel
     private lateinit var repository: NasaRepository
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

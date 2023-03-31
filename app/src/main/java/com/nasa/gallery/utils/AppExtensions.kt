@@ -5,6 +5,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.nasa.gallery.R
 import retrofit2.Response
 import java.net.SocketTimeoutException
@@ -52,4 +54,10 @@ fun Exception.handleExceptionWithContext(context: Context): Result.Error {
             )
         )
     }
+}
+
+fun RecyclerView.autoFitColumns(columnWidth: Int) {
+    val displayMetrics = this.context.resources.displayMetrics
+    val noOfColumns = ((displayMetrics.widthPixels / displayMetrics.density) / columnWidth).toInt()
+    this.layoutManager = GridLayoutManager(this.context, noOfColumns)
 }
