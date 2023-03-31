@@ -9,5 +9,23 @@
         android:id="@+id/imageGridFragment"
         android:name="com.nasa.gallery.ui.ImageGridFragment"
         android:label="ImageGridFragment"
-        tools:layout="@layout/fragment_image_grid"/>
+        tools:layout="@layout/fragment_image_grid">
+        <action
+            android:id="@+id/action_imageGridFragment_to_imageDetailFragment"
+            app:destination="@id/imageDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="imagePosition"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailFragment"
+        android:name="com.nasa.gallery.ui.ImageDetailFragment"
+        android:label="ImageDetailFragment"
+        tools:layout="@layout/fragment_image_detail" />
 </navigation>

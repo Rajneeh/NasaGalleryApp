@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nasa.gallery.databinding.LayoutGridImageItemBinding
 import com.nasa.gallery.model.ImageDataModel
 
-class GridAdapter(private val imageActionListener: ImageActionListener) :
-    RecyclerView.Adapter<GridAdapter.GridViewHolder>() {
+class GridAdapter(private val imageActionListener: ImageActionListener) : RecyclerView.Adapter<GridAdapter.GridViewHolder>() {
     private var dataList = ArrayList<ImageDataModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
@@ -33,8 +32,7 @@ class GridAdapter(private val imageActionListener: ImageActionListener) :
         }
     }
 
-    class GridViewHolder(val binding: LayoutGridImageItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    class GridViewHolder(val binding: LayoutGridImageItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     interface ImageActionListener {
         fun openImageDetails(position: Int)

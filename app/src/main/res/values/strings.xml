@@ -4,4 +4,8 @@
     <string name="failedToConnectToServerMsg">Failed to connect to the server. Check your internet connection and try again later.</string>
     <string name="somethingWentWrongMsg">Something went wrong. Try again!!</string>
     <string name="gridImageName">%s Image</string>
+    <string name="rightSlideDesc">Click to navigate right</string>
+    <string name="leftSlideDesc">Click to navigate left</string>
+    <string name="fullScreenImage">FullScreenImage</string>
+    <string name="copyright">Copyright - %s</string>
 </resources>
